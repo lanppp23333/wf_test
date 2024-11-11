@@ -23,6 +23,7 @@ int startSignal[4] = {1, 1, 1, 0};
 int endSignal[4] = {1, 1, 0, 0};
 //冲突解决Test1
 // 用于将4位二进制转换回十进制数字
+//test by WF
 int binaryToDecimal[10][4] = {
     {1, 0, 1, 0}, // 0
     {0, 0, 0, 1}, // 1
