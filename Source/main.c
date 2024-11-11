@@ -1,14 +1,14 @@
 /*********************************************************************************************
-* ÎÄ¼þ£ºmain.c
-* ×÷Õß£ºLixm 2017.09.25
-* ËµÃ÷£º¹âÕÕ¶È´«¸ÐÆ÷ÊµÑé Àý³Ì    
-*       Í¨¹ý¹âÇ¿´«¸ÐÆ÷²É¼¯»·¾³¹âÕÕÇ¿¶È£¬²¢½«¹âÇ¿ÐÅÏ¢´òÓ¡ÔÚPCÉÏ£¬1S¸üÐÂÒ»´Î
-* ÐÞ¸Ä£ºzhoucj  2018.01.02  ÐÞ¸ÄÎª´®¿ÚÒ»
-* ×¢ÊÍ£º
+* ï¿½Ä¼ï¿½ï¿½ï¿½main.c
+* ï¿½ï¿½ï¿½ß£ï¿½Lixm 2017.09.25
+* Ëµï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Õ¶È´ï¿½ï¿½ï¿½ï¿½ï¿½Êµï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½    
+*       Í¨ï¿½ï¿½ï¿½ï¿½Ç¿ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½É¼ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ç¿ï¿½È£ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ç¿ï¿½ï¿½Ï¢ï¿½ï¿½Ó¡ï¿½ï¿½PCï¿½Ï£ï¿½1Sï¿½ï¿½ï¿½ï¿½Ò»ï¿½ï¿½
+* ï¿½Þ¸Ä£ï¿½zhoucj  2018.01.02  ï¿½Þ¸ï¿½Îªï¿½ï¿½ï¿½ï¿½Ò»
+* ×¢ï¿½Í£ï¿½
 *********************************************************************************************/
 
 /*********************************************************************************************
-* Í·ÎÄ¼þ
+* Í·ï¿½Ä¼ï¿½
 *********************************************************************************************/
 #include <ioCC2530.h>
 #include "clock.h"
@@ -18,12 +18,18 @@
 #include "string.h"
 #include "BH1750.h"
 
-// ¶¨ÒåÅÐ¾öÊý×é£¬1110Îª¿ªÊ¼¼ì²âÐÅºÅ£¬1100Îª½áÊøÐÅºÅ
+// ï¿½ï¿½ï¿½ï¿½ï¿½Ð¾ï¿½ï¿½ï¿½ï¿½é£¬1110Îªï¿½ï¿½Ê¼ï¿½ï¿½ï¿½ï¿½ÅºÅ£ï¿½1100Îªï¿½ï¿½ï¿½ï¿½ï¿½Åºï¿½
 int startSignal[4] = {1, 1, 1, 0};
 int endSignal[4] = {1, 1, 0, 0};
+<<<<<<< HEAD
 //³åÍ»½â¾öTest1
 // ÓÃÓÚ½«4Î»¶þ½øÖÆ×ª»»»ØÊ®½øÖÆÊý×Ö
 //test by WF
+=======
+//ï¿½ï¿½Í»ï¿½ï¿½ï¿½Test1
+// ï¿½ï¿½ï¿½Ú½ï¿½4Î»ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½×ªï¿½ï¿½ï¿½ï¿½Ê®ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+//Test by HZM
+>>>>>>> 687ca9bba3b5393f2f88bf4a559541e34208ecb9
 int binaryToDecimal[10][4] = {
     {1, 0, 1, 0}, // 0
     {0, 0, 0, 1}, // 1
@@ -40,13 +46,13 @@ int binaryToDecimal[10][4] = {
 void processBitStream(int bitStream[], int *bitStreamIndex, int binaryBits[], int *binaryBitCount, int *startFlag, int *endFlag)
 {
 
-    // ¼ì²â±ÈÌØÁ÷ÊÇ·ñ·¢ÉúÌø±ä
+    // ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ç·ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
     if (*bitStreamIndex > 1 && bitStream[*bitStreamIndex - 1] != bitStream[*bitStreamIndex - 2])
     {
-        uart1_send_string("ÅÐ¾ö±ÈÌØÁ÷ÖÐ·¢Éú1Óë0Ìø±ä\n");
+        uart1_send_string("ï¿½Ð¾ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ð·ï¿½ï¿½ï¿½1ï¿½ï¿½0ï¿½ï¿½ï¿½ï¿½\n");
         if (*bitStreamIndex == 4)
         {
-            uart1_send_string("ÒÑ½ÓÊÕµ½ËÄÎ»ÅÐ¾ö±ÈÌØ£¬¸³Öµµ½binaryBits\n");            
+            uart1_send_string("ï¿½Ñ½ï¿½ï¿½Õµï¿½ï¿½ï¿½Î»ï¿½Ð¾ï¿½ï¿½ï¿½ï¿½Ø£ï¿½ï¿½ï¿½Öµï¿½ï¿½binaryBits\n");            
             binaryBits[*binaryBitCount]=bitStream[*bitStreamIndex - 2];
             (*binaryBitCount)++;          
             bitStream[0] = bitStream[*bitStreamIndex - 1];
@@ -60,8 +66,8 @@ void processBitStream(int bitStream[], int *bitStreamIndex, int binaryBits[], in
     }
     else if (*bitStreamIndex == 4)
     {
-        uart1_send_string("ÅÐ¾ö±ÈÌØÁ÷ÖÐÃ»ÓÐ·¢ÉúÌø±ä\n");
-        uart1_send_string("ÒÑ½ÓÊÕµ½ËÄÎ»ÅÐ¾ö±ÈÌØ£¬¸³Öµµ½binaryBits\n");
+        uart1_send_string("ï¿½Ð¾ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ã»ï¿½Ð·ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½\n");
+        uart1_send_string("ï¿½Ñ½ï¿½ï¿½Õµï¿½ï¿½ï¿½Î»ï¿½Ð¾ï¿½ï¿½ï¿½ï¿½Ø£ï¿½ï¿½ï¿½Öµï¿½ï¿½binaryBits\n");
         binaryBits[*binaryBitCount]=bitStream[*bitStreamIndex - 1];
         (*binaryBitCount)++;
         *bitStreamIndex = 0;
@@ -69,7 +75,7 @@ void processBitStream(int bitStream[], int *bitStreamIndex, int binaryBits[], in
 
     if (*binaryBitCount == 4)
     {
-        uart1_send_string("ËÄÎ»¶þ½øÖÆÊä³ö: ");
+        uart1_send_string("ï¿½ï¿½Î»ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½: ");
         *binaryBitCount = 0; 
         for (int i = 0; i < 4; ++i)
         {
@@ -87,7 +93,7 @@ void processBitStream(int bitStream[], int *bitStreamIndex, int binaryBits[], in
                 if (binaryBits[j] != startSignal[j])
                 {
                     flag = 0;                    
-                    uart1_send_string("²»Îª¿ªÊ¼ÐÅºÅ£¬binaryBitCountÖÃ3£¬ºóÈýÎ»×óÒÆ\n");
+                    uart1_send_string("ï¿½ï¿½Îªï¿½ï¿½Ê¼ï¿½ÅºÅ£ï¿½binaryBitCountï¿½ï¿½3ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Î»ï¿½ï¿½ï¿½ï¿½\n");
                     *binaryBitCount = 3;
                     for (int i = 0; i < 3; i++)
                     {
@@ -99,7 +105,7 @@ void processBitStream(int bitStream[], int *bitStreamIndex, int binaryBits[], in
             }
             if (flag)
             {
-                uart1_send_string("¿ªÊ¼¼ì²â½ÓÊÕ£º\n");
+                uart1_send_string("ï¿½ï¿½Ê¼ï¿½ï¿½ï¿½ï¿½ï¿½Õ£ï¿½\n");
                 *startFlag = 1;
                 return;
             }
@@ -118,7 +124,7 @@ void processBitStream(int bitStream[], int *bitStreamIndex, int binaryBits[], in
             }
             if (flag)
             {
-                uart1_send_string("½áÊø¼ì²â½ÓÊÕ\n");
+                uart1_send_string("ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½\n");
                 *endFlag = 1;
                 return;
             }
@@ -138,7 +144,7 @@ void processBitStream(int bitStream[], int *bitStreamIndex, int binaryBits[], in
             if (flag == 1 && *startFlag == 1)
             {
                 char tx_buff[32] = {0};
-                sprintf(tx_buff, "½ÓÊÕµ½Ê®½øÖÆÊý×Ö£º%d\n", i);
+                sprintf(tx_buff, "ï¿½ï¿½ï¿½Õµï¿½Ê®ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ö£ï¿½%d\n", i);
                 uart1_send_string(tx_buff);
             }
         }
@@ -146,49 +152,49 @@ void processBitStream(int bitStream[], int *bitStreamIndex, int binaryBits[], in
 }
 
 /*********************************************************************************************
-* Ãû³Æ£ºmain()
-* ¹¦ÄÜ£ºÂß¼­´úÂë
-* ²ÎÊý£ºÎÞ
-* ·µ»Ø£ºÎÞ
-* ÐÞ¸Ä£º
-* ×¢ÊÍ£º
+* ï¿½ï¿½ï¿½Æ£ï¿½main()
+* ï¿½ï¿½ï¿½Ü£ï¿½ï¿½ß¼ï¿½ï¿½ï¿½ï¿½ï¿½
+* ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+* ï¿½ï¿½ï¿½Ø£ï¿½ï¿½ï¿½
+* ï¿½Þ¸Ä£ï¿½
+* ×¢ï¿½Í£ï¿½
 *********************************************************************************************/
 void main(void)
 {
-    float lightData = 0; // ´æ´¢¹âÕÕ¶ÈÊý¾Ý±äÁ¿
-    char txBuffer[64];   // ´®¿Ú·¢ËÍ»º³åÊý×é
+    float lightData = 0; // ï¿½æ´¢ï¿½ï¿½ï¿½Õ¶ï¿½ï¿½ï¿½ï¿½Ý±ï¿½ï¿½ï¿½
+    char txBuffer[64];   // ï¿½ï¿½ï¿½Ú·ï¿½ï¿½Í»ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
     memset(txBuffer, 0, sizeof(txBuffer));
-    int binaryBits[4] = {0, 0, 0, 0}; // ËÄÎ»¶þ½øÖÆÊý×é
-    int bitStream[4];                 // ÅÐ¾ö±ÈÌØÎ»Êý×é
-    xtal_init();                      // ÏµÍ³Ê±ÖÓ³õÊ¼»¯     
-    bh1750_init();                    // ¹âÕÕ¶È´«¸ÐÆ÷³õÊ¼»¯
+    int binaryBits[4] = {0, 0, 0, 0}; // ï¿½ï¿½Î»ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+    int bitStream[4];                 // ï¿½Ð¾ï¿½ï¿½ï¿½ï¿½ï¿½Î»ï¿½ï¿½ï¿½ï¿½
+    xtal_init();                      // ÏµÍ³Ê±ï¿½Ó³ï¿½Ê¼ï¿½ï¿½     
+    bh1750_init();                    // ï¿½ï¿½ï¿½Õ¶È´ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ê¼ï¿½ï¿½
     uart1_init(0x00, 0x00); 
-    int bitStreamIndex = 0;           // ÅÐ¾ö±ÈÌØÁ÷ÏÂ±ê                                              
-    int binaryBitCount = 0;           // ËÄÎ»¶þ½øÖÆÎ»Êý
-    int startFlag = 0, endFlag = 0;   // ¿ªÊ¼£¬½áÊø±êÊ¶·û
+    int bitStreamIndex = 0;           // ï¿½Ð¾ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Â±ï¿½                                              
+    int binaryBitCount = 0;           // ï¿½ï¿½Î»ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Î»ï¿½ï¿½
+    int startFlag = 0, endFlag = 0;   // ï¿½ï¿½Ê¼ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ê¶ï¿½ï¿½
 
     
     while (1)
     {
         lightData = bh1750_get_data();
-        sprintf(txBuffer, "½ÓÊÕ¼ì²â¹âÇ¿Lx:%f\n", lightData); // Êä³ö¼ì²â¹âÇ¿
+        sprintf(txBuffer, "ï¿½ï¿½ï¿½Õ¼ï¿½ï¿½ï¿½Ç¿Lx:%f\n", lightData); // ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ç¿
         uart1_send_string(txBuffer);
 
-        if (lightData > 75) // ¼ì²âµ½·¢ÁÁ
+        if (lightData > 75) // ï¿½ï¿½âµ½ï¿½ï¿½ï¿½ï¿½
         {
-            uart1_send_string("·¢ËÍ¶Ë·¢ËÍ: 1\n"); // Êä³ö¡®1¡¯
+            uart1_send_string("ï¿½ï¿½ï¿½Í¶Ë·ï¿½ï¿½ï¿½: 1\n"); // ï¿½ï¿½ï¿½ï¿½ï¿½1ï¿½ï¿½
             bitStream[bitStreamIndex++] = 1;
         }
         else
         {
-            uart1_send_string("·¢ËÍ¶Ë·¢ËÍ: 0\n"); // Êä³ö0
+            uart1_send_string("ï¿½ï¿½ï¿½Í¶Ë·ï¿½ï¿½ï¿½: 0\n"); // ï¿½ï¿½ï¿½0
             bitStream[bitStreamIndex++] = 0;
         }
 
         processBitStream(bitStream, &bitStreamIndex, binaryBits, &binaryBitCount, &startFlag, &endFlag);
         
         delay_ms(200);
-        if (endFlag) // Èç¹û¼ì²âµ½½áÊøÐÅºÅ£¬ÔòÖØÖÃ±êÊ¶·û
+        if (endFlag) // ï¿½ï¿½ï¿½ï¿½ï¿½âµ½ï¿½ï¿½ï¿½ï¿½ï¿½ÅºÅ£ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ã±ï¿½Ê¶ï¿½ï¿½
         {
             startFlag = 0, endFlag = 0;
             continue;
