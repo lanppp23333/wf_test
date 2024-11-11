@@ -1,0 +1,34 @@
+[DebugChecksum]
+Checksum=18505811
+[Stack]
+FillEnabled=0
+OverflowWarningsEnabled=1
+WarningThreshold=90
+SpWarningsEnabled=1
+WarnLogOnly=1
+UseTrigger=1
+TriggerName=main
+LimitSize=0
+ByteLimit=50
+[CallStack]
+ShowArgs=0
+[Disassembly]
+MixedMode=1
+[Log file]
+LoggingEnabled=_ 0
+LogFile=_ ""
+Category=_ 0
+[TermIOLog]
+LoggingEnabled=_ 0
+LogFile=_ ""
+[Breakpoints]
+Count=0
+[ChipconEmu]
+Stop timers on halt=1
+Leave target running=1
+[Aliases]
+A0=_ "E:\传感器原理及应用\2022年下半年\第四节V0.2\光照度综合实验\02-LightIntensity\Source\delay.c" ""
+A1=_ "E:\传感器原理及应用\2022年下半年\第四节V0.2\光照度综合实验\02-LightIntensity\Source\main.c" ""
+A2=_ "E:\传感器原理及应用\2022年下半年\第四节V0.2\光照度综合实验\02-LightIntensity\Source\uart1.c" ""
+Count=3
+SuppressDialog=0
